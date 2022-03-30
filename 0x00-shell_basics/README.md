@@ -59,5 +59,3 @@
   * [14-copy_html](./14-copy_html): Bash script that copies all HTML files from the current
   working directory to the parent of the working directory, but only those that
   did not exist in the parent directory or were newer than the versions in the parent working directory.
-
-*
