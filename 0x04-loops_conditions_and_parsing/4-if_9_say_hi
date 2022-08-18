@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# # This script is displaying "Best School" 10 times, but for the 9th iteration, displays Best School and then Hi on a new line.
+
+string_a='Best School'
+counter=0
+while [ $counter -lt 10 ]; do
+	echo "$string_a"
+	(( counter+=1 ))
+	if [ $counter -eq 9 ]; then
+		echo "Hi"
+	fi
+done
