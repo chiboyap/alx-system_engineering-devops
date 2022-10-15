@@ -1,16 +1,15 @@
 # Seting up my client config file
 include stdlib
 
-file_line { 'Turn off passwd auth':
-  ensure => present,
-  path   => '/etc/ssh/ssh_config',
-  line   => '    PasswordAuthentication no',
-  replace => true,
+exec { 'Turn off passwd auth':
+  command => 'bash -c "echo PasswordAuthentication no >> /etc/ssh/ssh_config"',
+  path    => '/usr/bin:/usr/sbin:/bin'
 }
-
-file_line { 'Delare identity file':
-  ensure => present,
-  path   => '/etc/ssh/ssh_config',
-  line   => '     IdentityFile ~/.ssh/school',
-  replace => true,
+exec { 'Declare identity file':
+  command => 'bash -c "echo IdentityFile \'~/.ssh/school\' >> /etc/ssh/ssh_config"',
+  path    => '/usr/bin:/usr/sbin:/bin'
+}
+exec { 'Turn on pubkey auth':
+  command => 'bash -c "echo PubkeyAuthentication yes >> /etc/ssh/ssh_config"',
+  path    => '/usr/bin:/usr/sbin:/bin'
 }
