@@ -7,7 +7,7 @@ runDig () {
     dig "$subarg.$urlarg" | grep -A1 'ANSWER SECTION:' | tail -1 | awk -v s="$subarg" 'BEGIN { FS = " " } ; { print "The subdomain " s " is a " $4 " record and points to " $5 }'
 }
 
-allSubs=( "www" "lb-01" "web-01" "web-02" )
+allSubs=( "www" "54.237.17.163" "44.192.25.247" "35.168.7.114" )
 
 if [ $# -eq 1 ]; then
     url="$1"
